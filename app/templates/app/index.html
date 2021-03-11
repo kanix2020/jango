@@ -1,0 +1,36 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+<div class="row my-4">
+  <div class="col-md-8">
+    {% for post in post_data %}
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="card-title">{{ post.title }}</h2>
+          <p class="card-text">{{ post.content|truncatechars:100 }}</p>
+          <div class="btn btn-warning">詳細</div>
+        </div>
+        <div class="card-footer text-muted">
+          {{ post.created|date }} by {{ post.author }}
+        </div>
+        <a href="" class="stretched-link"></a>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="col-md-4">
+    <div class="card"> 
+      <h5 class="card-header">このチュートリアルについて</h5>
+      <div class="card-body">
+        <p>ステップ１</p>
+        <p class="mb-0">
+            初めてDjangoを触るよ
+            最小限の機能の構築してDjangoを学習しています。
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+ {% endblock %}
