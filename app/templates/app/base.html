@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
 
   <title>ブログチュート</title>
 </head>
@@ -21,17 +21,17 @@
         </li>
         {% if user.is_authenticated %}
           <li class="nav-item">
-            <!-- <a class="nav-link" href="{% url 'post_new' %}">投稿</a> -->
+            <a class="nav-link" href="{% url 'post_new' %}">投稿</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">ログアウト</a>
+            <a class="nav-link" href="{% url 'account_logout' %}">ログアウト</a>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="/">サインアップ</a>
+            <a class="nav-link" href="{% url 'account_signup' %}">サインアップ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">ログイン</a>
+            <a class="nav-link" href="{% url 'account_login' %}">ログイン</a>
           </li>
         {% endif %}
       </ul>
